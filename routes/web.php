@@ -22,3 +22,6 @@ Route::put('/subjectdate/test/{id}', 'SubjectDateController@update');
 
 Route::get('/subjectdate/{id}/editimgsort',        'SubjectDateController@editimgsort');
 Route::post('/subjectdate/group/saveorder',        'SubjectDateController@saveorder');
+
+Route::resource('/dataenable',        'DataEnableController');
+Route::post('/dataenable/dataenable_enable',        'DataEnableController@dataenable_enable');
