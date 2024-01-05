@@ -25,3 +25,10 @@ Route::post('/subjectdate/group/saveorder',        'SubjectDateController@saveor
 
 Route::resource('/dataenable',        'DataEnableController');
 Route::post('/dataenable/dataenable_enable',        'DataEnableController@dataenable_enable');
+// Route::resource('/editor',        'EditorController');
+// Route::post('/editor/upload',        'EditorController@upload');
+Route::resource('/dataeditor',        'DataEditorController');
+Route::post('/dataeditor/upload',        'DataEditorController@upload');
+
+// Route::get('/googledrive/upload',        'GoogleDriveController@index');
+// Route::post('/googledrive/upload',        'GoogleDriveController@uploadFile');

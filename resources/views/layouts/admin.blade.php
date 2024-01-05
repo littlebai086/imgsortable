@@ -13,6 +13,9 @@
 
     <!-- 在<body>標籤底部引入SweetAlert2的JavaScript文件 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/rdw8bsg1gopo4u4gmtzhw8ki57u1cu8lnmt9l2d6asoa4sbb/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    @yield('js_head')
+
     @yield('css')
     <style>
 
