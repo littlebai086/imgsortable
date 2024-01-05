@@ -30,5 +30,5 @@ Route::post('/dataenable/dataenable_enable',        'DataEnableController@dataen
 Route::resource('/dataeditor',        'DataEditorController');
 Route::post('/dataeditor/upload',        'DataEditorController@upload');
 
-// Route::get('/googledrive/upload',        'GoogleDriveController@index');
-// Route::post('/googledrive/upload',        'GoogleDriveController@uploadFile');
+Route::get('/googledrive/upload',        'GoogleDriveController@index');
+Route::post('/googledrive/upload',        'GoogleDriveController@uploadFile');

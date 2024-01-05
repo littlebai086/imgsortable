@@ -1,4 +1,5 @@
 <?php
+use League\Flysystem\GoogleDrive\GoogleDriveAdapter;
 
 return [
 
@@ -27,6 +28,7 @@ return [
     | Supported Drivers: "local", "ftp", "sftp", "s3"
     |
     */
+    'cloud' => 'google', // Optional: set Google Drive as default cloud storage
 
     'disks' => [
 
@@ -35,6 +37,16 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'google' => [
+            'driver' => 'google',
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'accessToken' => env('GOOGLE_DRIVE_ACCESS_TOKEN'),
+            'developerKey' => env('GOOGLE_DRIVE_DEVELOPER_KEY'),
+            'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
+        ],
+        
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

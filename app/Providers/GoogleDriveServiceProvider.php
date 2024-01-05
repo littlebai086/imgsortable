@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+
+class GoogleDriveServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        \Storage::extend('google', function($app, $config) {
+            
+            $client = new \Google_Client();
+            $client->setClientId($config['clientId']);
+            $client->setClientSecret($config['clientSecret']);
+            $client->refreshToken($config['refreshToken']);
+            $client->setDeveloperKey($config['developerKey']);
+            $client->setAccessToken($config['accessToken']);
+            // $client->setScopes(array(               
+            //     'https://www.googleapis.com/auth/drive.file',
+            //     'https://www.googleapis.com/auth/drive'
+            // ));
+            $client->setAccessType("offline");
+            $client->setApprovalPrompt("force");
+            // $service = new Google_Service_Drive($client);
+            $service = new \Google_Service_Drive($client);
+            // dd($service);
+            $adapter = new \Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter($service, $config['folderId']);
+            return new \League\Flysystem\Filesystem($adapter);
+        });
+    }
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+}

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost/imgsortable'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        App\Providers\GoogleDriveServiceProvider::class,
 
     ],
 
